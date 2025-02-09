@@ -9,7 +9,8 @@ type Person = {
     name: string
     age: number
     isStudent: boolean
-    address: Address
+    // means the address is optional
+    address?: Address
 }
 
 let person1: Person = {
@@ -34,5 +35,7 @@ let person2: Person = {
     }
 }
 
-console.log(person1, person2)
-console.log(typeof person1)
+// notice type safety measure here
+function displayInfo(person: Person) {
+    console.log(`${person.name} lives at ${person.address?.street}`)
+}
